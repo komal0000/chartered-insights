@@ -2,57 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* RKACA Brand Design System - All colors, gradients, fonts, etc defined here. 
+All colors are HSL as required.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* RKACA Brand Colors */
+    --primary: 193 98% 23%;              /* Deep Chartered Blue #015A77 */
+    --primary-foreground: 0 0% 100%;     /* Crisp White #FFFFFF */
+    
+    --secondary: 176 100% 37%;           /* Fresh Teal #00BFB2 */
+    --secondary-foreground: 0 0% 100%;   /* Crisp White #FFFFFF */
+    
+    --accent: 176 100% 37%;              /* Fresh Teal #00BFB2 */
+    --accent-foreground: 0 0% 100%;      /* Crisp White #FFFFFF */
+    
+    --background: 0 0% 100%;             /* Crisp White #FFFFFF */
+    --foreground: 0 0% 12%;              /* Report Black #1E1E1E */
+    
+    --muted: 0 0% 96%;                   /* Audit Grey #F5F5F5 */
+    --muted-foreground: 0 0% 12%;        /* Report Black #1E1E1E */
+    
+    --card: 0 0% 100%;                   /* Crisp White #FFFFFF */
+    --card-foreground: 0 0% 12%;         /* Report Black #1E1E1E */
+    
+    --popover: 0 0% 100%;                /* Crisp White #FFFFFF */
+    --popover-foreground: 0 0% 12%;      /* Report Black #1E1E1E */
+    
+    --border: 0 0% 96%;                  /* Audit Grey #F5F5F5 */
+    --input: 0 0% 96%;                   /* Audit Grey #F5F5F5 */
+    --ring: 176 100% 37%;                /* Fresh Teal #00BFB2 */
+    
+    --destructive: 0 63% 47%;            /* Alert Red #BE3232 */
+    --destructive-foreground: 0 0% 100%; /* Crisp White #FFFFFF */
+    
+    --radius: 0.75rem;
+    
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(193 98% 23%), hsl(193 98% 18%));
+    --gradient-secondary: linear-gradient(135deg, hsl(176 100% 37%), hsl(176 100% 32%));
+    --gradient-hero: linear-gradient(135deg, hsl(193 98% 23%) 0%, hsl(176 100% 37%) 100%);
+    
+    /* Professional shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(193 98% 23% / 0.1);
+    --shadow-medium: 0 8px 30px -8px hsl(193 98% 23% / 0.15);
+    --shadow-strong: 0 20px 40px -12px hsl(193 98% 23% / 0.25);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 193 98% 23%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 176 100% 37%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 193 98% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 193 98% 18%;
+    --sidebar-ring: 176 100% 37%;
   }
 
   .dark {
@@ -100,6 +109,54 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-lato;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat;
+  }
+}
+
+@layer components {
+  /* Professional button variants */
+  .btn-primary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply border border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-secondary-foreground transition-all duration-300;
+  }
+  
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-strong transition-all duration-500 transform hover:-translate-y-1;
+  }
+  
+  /* Professional animations */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-medium;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
   }
 }
