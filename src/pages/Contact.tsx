@@ -47,19 +47,16 @@ const Contact = () => {
     <div className="min-h-screen">
       {/* Hero Section - Grant Thornton Style */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* Professional Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-primary/95">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat mix-blend-soft-light opacity-20"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke='%2300BFB2' stroke-width='1.5' opacity='0.1'%3E%3Ccircle cx='75' cy='75' r='20'/%3E%3Ccircle cx='75' cy='75' r='40'/%3E%3Ccircle cx='75' cy='75' r='60'/%3E%3C/g%3E%3C/svg%3E")`
-            }}
-          />
-          {/* Contact floating elements */}
-          <div className="absolute top-20 left-16 w-40 h-40 bg-secondary/8 rounded-2xl rotate-45 blur-sm animate-pulse"></div>
-          <div className="absolute bottom-24 right-20 w-32 h-32 bg-primary-foreground/5 rounded-full blur-lg animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-secondary/5 rounded-lg rotate-12 blur-md animate-pulse delay-500"></div>
-        </div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)'
+          }}
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/30" />
+        {/* Gradient blend for brand consistency */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-primary/40 mix-blend-overlay" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">

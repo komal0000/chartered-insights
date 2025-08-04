@@ -63,10 +63,21 @@ const About = () => {
     <div className="min-h-screen">
       {/* Hero Section - Grant Thornton Style */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* Professional Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-primary/95">
+        {/* Full-Screen Background Image */}
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+          style={{
+            backgroundImage: `url("https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop")`
+          }}
+        />
+        
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/30 z-0" />
+        
+        {/* Professional Background with blend mode */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-primary/95 mix-blend-overlay z-0">
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat mix-blend-overlay opacity-25"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat mix-blend-soft-light opacity-25"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%2300BFB2' stroke-width='2' opacity='0.1'%3E%3Cpath d='M100 20L180 100L100 180L20 100Z'/%3E%3Cpath d='M100 40L160 100L100 160L40 100Z'/%3E%3Cpath d='M100 60L140 100L100 140L60 100Z'/%3E%3C/g%3E%3C/svg%3E")`
             }}
