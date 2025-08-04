@@ -93,24 +93,6 @@ const About = () => {
                   delivering comprehensive audit, tax, risk advisory, and business consulting services with 
                   unwavering commitment to excellence and client success.
                 </p>
-                <div className="grid grid-cols-2 gap-6 bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20">
-                  <div className="text-center">
-                    <div className="text-3xl font-montserrat font-bold text-secondary mb-2">100+</div>
-                    <div className="text-sm font-lato text-primary-foreground/80">Client Engagements</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-montserrat font-bold text-secondary mb-2">15+</div>
-                    <div className="text-sm font-lato text-primary-foreground/80">Years Experience</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-montserrat font-bold text-secondary mb-2">50+</div>
-                    <div className="text-sm font-lato text-primary-foreground/80">Business Partners</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-montserrat font-bold text-secondary mb-2">5+</div>
-                    <div className="text-sm font-lato text-primary-foreground/80">Industry Sectors</div>
-                  </div>
-                </div>
               </div>
 
               {/* Values Visual Grid */}

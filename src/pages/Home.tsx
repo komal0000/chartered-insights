@@ -1,10 +1,55 @@
-import { ArrowRight, Shield, TrendingUp, Users, Award, CheckCircle, Quote, Star, Building2, Globe, Target } from "lucide-react";
+import { ArrowRight, Shield, TrendingUp, Users, Award, CheckCircle, Quote, Star, Building2, Globe, Target, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Home = () => {
+  // Background images for hero slider
+  const heroImages = [
+    "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1920&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1920&auto=format&fit=crop", 
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1920&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop"
+  ];
+
+  // Hero image slider state
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+
+  // Navigate to specific slide
+  const goToSlide = (index) => {
+    setCurrentImageIndex(index);
+    setIsAutoPlay(false);
+    // Resume auto-play after 10 seconds of manual interaction
+    setTimeout(() => setIsAutoPlay(true), 10000);
+  };
+
+  // Navigate to previous slide
+  const prevSlide = () => {
+    const newIndex = currentImageIndex === 0 ? heroImages.length - 1 : currentImageIndex - 1;
+    goToSlide(newIndex);
+  };
+
+  // Navigate to next slide
+  const nextSlide = () => {
+    const newIndex = currentImageIndex === heroImages.length - 1 ? 0 : currentImageIndex + 1;
+    goToSlide(newIndex);
+  };
+
+  // Auto-slide effect
+  useEffect(() => {
+    if (!isAutoPlay) return;
+    
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [heroImages.length, isAutoPlay]);
   const services = [
     {
       title: "Audit & Assurance",
@@ -29,10 +74,10 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: "100+", label: "Successful Client Engagements" },
-    { number: "15+", label: "Years of Professional Experience" },
-    { number: "50+", label: "Satisfied Business Partners" },
-    { number: "5+", label: "Key Industry Sectors" },
+    { number: "100+", label: "Successful Client Engagements", icon: CheckCircle },
+    { number: "15+", label: "Years of Professional Experience", icon: Award },
+    { number: "50+", label: "Satisfied Business Partners", icon: Users },
+    { number: "5+", label: "Key Industry Sectors", icon: Globe },
   ];
 
   const industries = [
@@ -101,15 +146,72 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Content Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground">
-        <div className="container mx-auto px-4">
+      {/* Hero Content Section with Background Image Slider */}
+      <section className="relative py-20 text-primary-foreground overflow-hidden">
+        {/* Background Image Slider */}
+        <div className="absolute inset-0 z-0">
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{
+                backgroundImage: `url(${image})`
+              }}
+            />
+          ))}
+          {/* Dark gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
+        {/* Slider Navigation Controls */}
+        <div className="absolute inset-y-0 left-4 z-20 flex items-center">
+          <button
+            onClick={prevSlide}
+            className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-6 h-6 text-white" />
+          </button>
+        </div>
+        
+        <div className="absolute inset-y-0 right-4 z-20 flex items-center">
+          <button
+            onClick={nextSlide}
+            className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-6 h-6 text-white" />
+          </button>
+        </div>
+
+        {/* Slider Dot Indicators */}
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="flex space-x-3">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentImageIndex
+                    ? 'bg-secondary scale-125'
+                    : 'bg-white/50 hover:bg-white/80'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Hero Content - Above background slider */}
+        <div className="relative z-10 container mx-auto px-4">
           <div className="text-center max-w-5xl mx-auto">
-            <h1 className="text-4xl lg:text-6xl font-montserrat font-bold mb-6">
+            <h1 className="text-4xl lg:text-6xl font-montserrat font-bold mb-6 text-white">
               We go beyond expectations
               <span className="block text-secondary">so you can, too</span>
             </h1>
-            <p className="text-xl lg:text-2xl font-lato mb-10 opacity-90 max-w-3xl mx-auto">
+            <p className="text-xl lg:text-2xl font-lato mb-10 opacity-90 max-w-3xl mx-auto text-white">
               Partner with Nepal's leading Chartered Accountancy firm for comprehensive audit, tax, risk advisory, and business consulting services that drive sustainable growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -119,11 +221,16 @@ const Home = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-montserrat font-semibold px-8 py-6 text-lg">
+                <Button
+                asChild 
+                variant="outline"
+                size="lg"
+                className="border-white text-primary hover:bg-white font-montserrat font-semibold px-8 py-6 text-lg"
+                >
                 <Link to="/contact">
                   Request Consultation
                 </Link>
-              </Button>
+                </Button>
             </div>
           </div>
         </div>
@@ -133,18 +240,23 @@ const Home = () => {
       <section className="py-8 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-[#00BFB2]/20">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl lg:text-4xl font-montserrat font-bold text-[#00BFB2] mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm lg:text-base font-lato text-black/80">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-[#00BFB2]/20">
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center flex flex-col items-center">
+          <div className="flex items-center justify-center mb-2">
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#00BFB2]/10 mr-3">
+              <stat.icon className="w-6 h-6 text-[#00BFB2]" />
             </div>
+            <div className="text-3xl lg:text-4xl font-montserrat font-bold text-[#00BFB2]">
+              {stat.number}
+            </div>
+          </div>
+          <div className="text-sm lg:text-base font-lato text-black/80">
+            {stat.label}
+          </div>
+            </div>
+          ))}
+        </div>
           </div>
         </div>
       </section>
@@ -365,7 +477,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      {/* <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-montserrat font-bold mb-6">
             Ready to Go Beyond Expectations?
@@ -388,59 +500,8 @@ const Home = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Contact Banner as Slider */}
-      <section className="py-20 bg-secondary text-secondary-foreground">
-        <div className="container mx-auto px-4">
-          <Carousel
-            opts={{
-              align: "center",
-              loop: true,
-            }}
-            className="w-full max-w-4xl mx-auto"
-          >
-            <CarouselContent>
-              <CarouselItem>
-                <div className="text-center">
-                  {/* Enhanced Logo Display */}
-                  <div className="mb-10 flex flex-col items-center">
-                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl border-4 border-[#00BFB2]">
-                      {/* Replace with <img src={...} alt="Chartered Insights Logo" /> if you have a real logo */}
-                      <span className="text-3xl font-montserrat font-extrabold text-[#015A77] tracking-tight select-none">CI</span>
-                    </div>
-                    <div className="mt-3 text-base font-montserrat font-bold text-[#015A77] tracking-widest uppercase">
-                      Chartered Insights
-                    </div>
-                    <div className="w-16 border-b-2 border-[#00BFB2] mt-4 mb-2 opacity-60" />
-                  </div>
-                  <h2 className="text-2xl lg:text-3xl font-montserrat font-bold mb-4 text-[#015A77]">
-                    Schedule a Consultation Today
-                  </h2>
-                  <p className="text-lg font-lato mb-8 text-[#015A77]">
-                    Connect with our expert team to discuss your specific business needs and discover 
-                    how we can help you achieve your financial and operational goals.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button asChild size="lg" className="bg-[#015A77] hover:bg-[#015A77]/90 text-white font-montserrat font-semibold px-8 py-6 text-lg">
-                      <Link to="/contact">
-                        Contact Us
-                      </Link>
-                    </Button>
-                    <Button asChild size="lg" variant="outline" className="border-[#015A77] text-[#015A77] hover:bg-[#015A77] hover:text-white font-montserrat font-semibold px-8 py-6 text-lg">
-                      <Link to="/services">
-                        View Services
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </CarouselItem>
-              {/* Add more <CarouselItem>...</CarouselItem> here for more slides */}
-            </CarouselContent>
-            {/* Optionally add CarouselPrevious/CarouselNext if you want arrows */}
-          </Carousel>
-        </div>
-      </section>
     </div>
   );
 };
