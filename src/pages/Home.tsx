@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-primary-foreground py-20 lg:py-32">
+      <section className="bg-primary text-primary-foreground py-20 lg:py-32">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-4xl lg:text-6xl font-montserrat font-bold mb-6">
@@ -168,7 +168,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-secondary text-secondary-foreground">
+      <section className="py-20 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-montserrat font-bold mb-6">
             Partner with Nepal's Trusted CA Firm
