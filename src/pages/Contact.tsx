@@ -46,7 +46,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Grant Thornton Style */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[60vh] p-4 flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -84,12 +84,12 @@ const Contact = () => {
                     Customized Solutions
                   </span>
                 </div>
-                <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-montserrat font-semibold px-8 py-6 text-lg">
+                {/* <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-montserrat font-semibold px-8 py-6 text-lg">
                   <Link to="#contact-form">
                     Get In Touch
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
-                </Button>
+                </Button> */}
               </div>
 
               {/* Contact Visual Grid */}

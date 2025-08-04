@@ -106,7 +106,7 @@ const Services = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Grant Thornton Style */}
-      <section className="relative min-h-[65vh] p-5 flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[65vh] p-4 flex items-center justify-center overflow-hidden">
         {/* Full-Screen Background Image */}
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
