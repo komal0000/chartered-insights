@@ -16,13 +16,21 @@ const Offices = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-primary text-primary-foreground py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-40 text-white overflow-hidden" style={{ maxHeight: 600 }}>
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat pointer-events-none"
+          style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80')"
+          }}
+        />
+        {/* Light overlay for text readability */}
+        <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+        <div className="relative container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-montserrat font-bold mb-6">
               Our Offices
             </h1>
-            <p className="text-xl font-lato text-primary-foreground/90">
+            <p className="text-xl font-lato text-white/90">
               Strategically located to serve clients across Nepal
             </p>
           </div>

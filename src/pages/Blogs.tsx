@@ -154,7 +154,7 @@ const Blogs = () => {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      {/* <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-montserrat font-bold mb-6">
             Stay Updated
@@ -176,7 +176,7 @@ const Blogs = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
