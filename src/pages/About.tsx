@@ -62,7 +62,7 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Grant Thornton Style */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Professional Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-primary/95">
           <div 
@@ -88,14 +88,12 @@ const About = () => {
                     Excellence in Every Engagement
                   </span>
                 </h1>
-                <p className="text-xl lg:text-2xl font-lato text-primary-foreground/90 mb-8 leading-relaxed">
-                  Roshan Kumar & Associates (RKACA) is Nepal's premier full-service Chartered Accountancy firm, 
-                  delivering comprehensive audit, tax, risk advisory, and business consulting services with 
-                  unwavering commitment to excellence and client success.
+                <p className="text-xl font-lato text-left lg:text-justify text-primary-foreground/90 mb-8 leading-relaxed tracking-normal">
+                  Roshan Kumar & Associates (RKACA) is Nepal's premier full-service Chartered Accountancy firm, delivering audit, tax, risk advisory, and business consulting services with unwavering commitment to excellence and client success.
                 </p>
-              </div>
+                </div>
 
-              {/* Values Visual Grid */}
+                {/* Values Visual Grid */}
               <div className="relative">
                 <div className="grid grid-cols-2 gap-6">
                   {/* Core Values Cards */}
@@ -105,19 +103,19 @@ const About = () => {
                     <p className="text-sm text-primary-foreground/80">Direct partner supervision ensuring quality and strategic insight</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 mt-8">
+                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
                     <Award className="w-12 h-12 text-secondary mb-4" />
                     <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Excellence</h3>
                     <p className="text-sm text-primary-foreground/80">International best practices tailored for Nepal market</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 -mt-4">
+                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 ">
                     <Target className="w-12 h-12 text-secondary mb-4" />
                     <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Client-First</h3>
                     <p className="text-sm text-primary-foreground/80">Customized solutions prioritizing client goals</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 mt-4">
+                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
                     <Lightbulb className="w-12 h-12 text-secondary mb-4" />
                     <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Innovation</h3>
                     <p className="text-sm text-primary-foreground/80">Technology-enabled solutions and continuous learning</p>
@@ -125,11 +123,11 @@ const About = () => {
                 </div>
                 
                 {/* Central RKACA Element */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="bg-secondary/15 backdrop-blur-md rounded-full p-8 border border-secondary/40">
                     <Building2 className="w-16 h-16 text-secondary animate-pulse" />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

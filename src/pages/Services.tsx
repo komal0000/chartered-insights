@@ -106,7 +106,7 @@ const Services = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Grant Thornton Style */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[65vh] p-5 flex items-center justify-center overflow-hidden">
         {/* Professional Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-primary/95">
           <div 
@@ -132,11 +132,11 @@ const Services = () => {
                     Beyond Expectations
                   </span>
                 </h1>
-                <p className="text-xl lg:text-2xl font-lato text-primary-foreground/90 mb-8 leading-relaxed">
+                <p className="text-xl lg:text-xl text-justify font-lato text-primary-foreground/90 mb-8 leading-relaxed">
                   Comprehensive audit, tax, risk advisory, and business consulting services 
                   delivered with partner-level expertise and industry-leading methodologies.
                 </p>
-                <div className="flex flex-wrap gap-3 mb-8">
+                {/* <div className="flex flex-wrap gap-3 mb-8">
                   <span className="bg-secondary/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-montserrat font-semibold text-primary-foreground">
                     Audit & Assurance
                   </span>
@@ -149,13 +149,13 @@ const Services = () => {
                   <span className="bg-secondary/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-montserrat font-semibold text-primary-foreground">
                     Business Consulting
                   </span>
-                </div>
-                <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-montserrat font-semibold px-8 py-6 text-lg">
+                </div> */}
+                {/* <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-montserrat font-semibold px-8 py-6 text-lg">
                   <Link to="/contact">
                     Schedule Consultation
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
-                </Button>
+                </Button> */}
               </div>
 
               {/* Services Visual Grid */}
@@ -168,20 +168,20 @@ const Services = () => {
                     <p className="text-sm text-primary-foreground/80">Comprehensive audit services with international standards</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 mt-8">
+                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
                     <Calculator className="w-12 h-12 text-secondary mb-4" />
                     <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Tax Services</h3>
                     <p className="text-sm text-primary-foreground/80">Expert tax planning and compliance solutions</p>
                   </div>
                   
                   {/* Bottom Row */}
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 -mt-4">
+                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 ">
                     <Users className="w-12 h-12 text-secondary mb-4" />
                     <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Risk Advisory</h3>
                     <p className="text-sm text-primary-foreground/80">Enterprise risk management and controls</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 mt-4">
+                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
                     <TrendingUp className="w-12 h-12 text-secondary mb-4" />
                     <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Business Consulting</h3>
                     <p className="text-sm text-primary-foreground/80">Strategic insights for sustainable growth</p>
@@ -189,11 +189,11 @@ const Services = () => {
                 </div>
                 
                 {/* Central Professional Element */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="bg-secondary/10 backdrop-blur-md rounded-full p-8 border border-secondary/30">
                     <Building2 className="w-16 h-16 text-secondary animate-pulse" />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

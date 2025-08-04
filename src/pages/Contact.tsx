@@ -46,7 +46,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Grant Thornton Style */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Professional Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-primary/95">
           <div 
@@ -72,7 +72,7 @@ const Contact = () => {
                     Let's Start the Conversation
                   </span>
                 </h1>
-                <p className="text-xl lg:text-2xl font-lato text-primary-foreground/90 mb-8 leading-relaxed">
+                <p className="text-xl lg:text-xl font-lato text-primary-foreground/90 mb-8 leading-relaxed">
                   Ready to take your business to the next level? Connect with our expert team for 
                   comprehensive accounting, audit, and advisory services tailored to your needs.
                 </p>
@@ -105,19 +105,19 @@ const Contact = () => {
                     <p className="text-sm text-primary-foreground/80">Direct line to our experts</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 mt-8">
+                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
                     <Mail className="w-12 h-12 text-secondary mb-4" />
                     <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Email Us</h3>
                     <p className="text-sm text-primary-foreground/80">Professional correspondence</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 -mt-4">
+                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
                     <MapPin className="w-12 h-12 text-secondary mb-4" />
                     <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Visit Us</h3>
                     <p className="text-sm text-primary-foreground/80">Biratnagar office location</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 mt-4">
+                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
                     <Calendar className="w-12 h-12 text-secondary mb-4" />
                     <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Schedule</h3>
                     <p className="text-sm text-primary-foreground/80">Book consultation meeting</p>
@@ -125,11 +125,11 @@ const Contact = () => {
                 </div>
                 
                 {/* Central RKACA Logo Element */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="bg-secondary/15 backdrop-blur-md rounded-full p-8 border border-secondary/40">
                     <Building2 className="w-16 h-16 text-secondary animate-pulse" />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

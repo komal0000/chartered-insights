@@ -6,35 +6,83 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const Home = () => {
-  // Background images for hero slider
-  const heroImages = [
-    "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1920&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1920&auto=format&fit=crop", 
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1920&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop"
+  // Hero slides with content and images
+  const slides = [
+    {
+      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1920&auto=format&fit=crop",
+      heading: "We go beyond expectations",
+      subheading: "so you can, too",
+      paragraph: "Partner with Nepal's leading Chartered Accountancy firm for comprehensive audit, tax, risk advisory, and business consulting services that drive sustainable growth.",
+      buttons: [
+        { text: "Explore Our Services", link: "/services", variant: "primary" },
+        { text: "Request Consultation", link: "/contact", variant: "secondary" }
+      ]
+    },
+    {
+      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1920&auto=format&fit=crop",
+      heading: "Transform with Trust",
+      subheading: "Empowering Growth",
+      paragraph: "Drive results with expert financial guidance and proven strategies. Our dedicated team ensures your business achieves its full potential through innovative solutions.",
+      buttons: [
+        { text: "Learn About Us", link: "/about", variant: "primary" },
+        { text: "Our Services", link: "/services", variant: "secondary" }
+      ]
+    },
+    {
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1920&auto=format&fit=crop",
+      heading: "Excellence in Every Engagement",
+      subheading: "Your Success, Our Mission",
+      paragraph: "Experience partner-led service with international standards. We deliver comprehensive accounting solutions tailored for Nepal's dynamic business environment.",
+      buttons: [
+        { text: "Get Started", link: "/contact", variant: "primary" },
+        { text: "View Industries", link: "/industries", variant: "secondary" }
+      ]
+    },
+    {
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop",
+      heading: "Strategic Financial Leadership",
+      subheading: "Building Tomorrow's Success",
+      paragraph: "Navigate complex financial challenges with confidence. Our expertise in audit, risk management, and strategic advisory drives sustainable business growth.",
+      buttons: [
+        { text: "Schedule Consultation", link: "/contact", variant: "primary" },
+        { text: "Our Expertise", link: "/services", variant: "secondary" }
+      ]
+    }
   ];
 
-  // Hero image slider state
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // Hero slider state
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isContentVisible, setIsContentVisible] = useState(true);
 
-  // Navigate to specific slide
+  // Navigate to specific slide with content fade transition
   const goToSlide = (index) => {
-    setCurrentImageIndex(index);
+    if (index === currentSlideIndex) return;
+    
+    // Fade out content
+    setIsContentVisible(false);
     setIsAutoPlay(false);
+    
+    // Change slide after fade out
+    setTimeout(() => {
+      setCurrentSlideIndex(index);
+      // Fade in new content
+      setTimeout(() => setIsContentVisible(true), 50);
+    }, 300);
+    
     // Resume auto-play after 10 seconds of manual interaction
     setTimeout(() => setIsAutoPlay(true), 10000);
   };
 
   // Navigate to previous slide
   const prevSlide = () => {
-    const newIndex = currentImageIndex === 0 ? heroImages.length - 1 : currentImageIndex - 1;
+    const newIndex = currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1;
     goToSlide(newIndex);
   };
 
   // Navigate to next slide
   const nextSlide = () => {
-    const newIndex = currentImageIndex === heroImages.length - 1 ? 0 : currentImageIndex + 1;
+    const newIndex = currentSlideIndex === slides.length - 1 ? 0 : currentSlideIndex + 1;
     goToSlide(newIndex);
   };
 
@@ -43,13 +91,17 @@ const Home = () => {
     if (!isAutoPlay) return;
     
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000); // Change image every 5 seconds
+      setIsContentVisible(false);
+      setTimeout(() => {
+        setCurrentSlideIndex((prevIndex) => 
+          prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+        );
+        setTimeout(() => setIsContentVisible(true), 50);
+      }, 300);
+    }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
-  }, [heroImages.length, isAutoPlay]);
+  }, [slides.length, isAutoPlay]);
   const services = [
     {
       title: "Audit & Assurance",
@@ -146,18 +198,18 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Content Section with Background Image Slider */}
-      <section className="relative py-20 text-primary-foreground overflow-hidden">
+      {/* Hero Section with Dynamic Content and Background Slider */}
+      <section className="relative py-20 text-white overflow-hidden">
         {/* Background Image Slider */}
         <div className="absolute inset-0 z-0">
-          {heroImages.map((image, index) => (
+          {slides.map((slide, index) => (
             <div
               key={index}
               className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
-                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
               }`}
               style={{
-                backgroundImage: `url(${image})`
+                backgroundImage: `url(${slide.image})`
               }}
             />
           ))}
@@ -170,7 +222,7 @@ const Home = () => {
           <button
             onClick={prevSlide}
             className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
-            aria-label="Previous image"
+            aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6 text-white" />
           </button>
@@ -180,7 +232,7 @@ const Home = () => {
           <button
             onClick={nextSlide}
             className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
-            aria-label="Next image"
+            aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6 text-white" />
           </button>
@@ -189,12 +241,12 @@ const Home = () => {
         {/* Slider Dot Indicators */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
           <div className="flex space-x-3">
-            {heroImages.map((_, index) => (
+            {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentImageIndex
+                  index === currentSlideIndex
                     ? 'bg-secondary scale-125'
                     : 'bg-white/50 hover:bg-white/80'
                 }`}
@@ -204,33 +256,41 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Hero Content - Above background slider */}
+        {/* Dynamic Hero Content */}
         <div className="relative z-10 container mx-auto px-4">
           <div className="text-center max-w-5xl mx-auto">
-            <h1 className="text-4xl lg:text-6xl font-montserrat font-bold mb-6 text-white">
-              We go beyond expectations
-              <span className="block text-secondary">so you can, too</span>
-            </h1>
-            <p className="text-xl lg:text-2xl font-lato mb-10 opacity-90 max-w-3xl mx-auto text-white">
-              Partner with Nepal's leading Chartered Accountancy firm for comprehensive audit, tax, risk advisory, and business consulting services that drive sustainable growth.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-montserrat font-semibold px-8 py-6 text-lg">
-                <Link to="/services">
-                  Explore Our Services
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-                <Button
-                asChild 
-                variant="outline"
-                size="lg"
-                className="border-white text-primary hover:bg-white font-montserrat font-semibold px-8 py-6 text-lg"
-                >
-                <Link to="/contact">
-                  Request Consultation
-                </Link>
-                </Button>
+            <div className={`transition-all duration-300 ease-in-out ${
+              isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}>
+              <h1 className="text-4xl lg:text-6xl font-montserrat font-bold mb-6 text-white">
+                {slides[currentSlideIndex].heading}
+                <span className="block text-secondary text-3xl lg:text-4xl mt-2">
+                  {slides[currentSlideIndex].subheading}
+                </span>
+              </h1>
+              <p className="text-xl lg:text-2xl font-lato mb-10 opacity-90 max-w-3xl mx-auto text-white leading-relaxed">
+                {slides[currentSlideIndex].paragraph}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                {slides[currentSlideIndex].buttons.map((button, buttonIndex) => (
+                  <Button
+                    key={buttonIndex}
+                    asChild
+                    size="lg"
+                    className={
+                      button.variant === 'primary'
+                        ? "bg-secondary hover:bg-secondary/90 text-primary font-montserrat font-semibold px-8 py-6 text-lg"
+                        : "border-white text-primary hover:bg-white hover:text-primary font-montserrat font-semibold px-8 py-6 text-lg"
+                    }
+                    variant={button.variant === 'primary' ? 'default' : 'outline'}
+                  >
+                    <Link to={button.link}>
+                      {button.text}
+                      {button.variant === 'primary' && <ArrowRight className="ml-2 h-5 w-5" />}
+                    </Link>
+                  </Button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -386,12 +446,14 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {industries.map((industry, index) => (
               <Card key={index} className="hover-lift h-full">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-secondary/10 rounded-lg mb-4 flex items-center justify-center">
-                    <industry.icon className="w-6 h-6 text-secondary" />
+                <CardHeader className="flex flex-col items-center text-center">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+                      <industry.icon className="w-6 h-6 text-secondary" />
+                    </div>
+                    <CardTitle className="font-montserrat text-lg">{industry.title}</CardTitle>
                   </div>
-                  <CardTitle className="font-montserrat">{industry.title}</CardTitle>
-                  <CardDescription className="font-lato">
+                  <CardDescription className="font-lato" style={{fontSize: '0.97rem'}}>
                     {industry.description}
                   </CardDescription>
                 </CardHeader>
