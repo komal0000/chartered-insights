@@ -116,10 +116,10 @@ const Services = () => {
         />
         
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/30 z-0" />
+        <div className="absolute inset-0 bg-black/60 z-0" />
         
         {/* Professional Background with blend mode */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-primary/95 mix-blend-overlay z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/30 to-primary/20 z-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat mix-blend-soft-light opacity-20"
             style={{
@@ -137,13 +137,13 @@ const Services = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Text Content */}
               <div>
-                <h1 className="text-4xl lg:text-6xl font-montserrat font-bold text-primary-foreground mb-6 leading-tight">
+                <h1 className="text-4xl lg:text-6xl font-montserrat font-bold text-white mb-6 leading-tight">
                   Professional Services
                   <span className="block text-secondary text-3xl lg:text-4xl mt-3">
                     Beyond Expectations
                   </span>
                 </h1>
-                <p className="text-xl lg:text-xl text-justify font-lato text-primary-foreground/90 mb-8 leading-relaxed">
+                <p className="text-xl lg:text-xl text-justify font-lato text-white/95 mb-8 leading-relaxed">
                   Comprehensive audit, tax, risk advisory, and business consulting services 
                   delivered with partner-level expertise and industry-leading methodologies.
                 </p>
@@ -173,29 +173,29 @@ const Services = () => {
               <div className="relative">
                 <div className="grid grid-cols-2 gap-6">
                   {/* Top Row */}
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
+                  <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-secondary/20 hover:bg-white/20 transition-all duration-300">
                     <Shield className="w-12 h-12 text-secondary mb-4" />
-                    <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Audit & Assurance</h3>
-                    <p className="text-sm text-primary-foreground/80">Comprehensive audit services with international standards</p>
+                    <h3 className="font-montserrat font-bold text-white mb-2">Audit & Assurance</h3>
+                    <p className="text-sm text-white/90">Comprehensive audit services with international standards</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
+                  <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-secondary/20 hover:bg-white/20 transition-all duration-300">
                     <Calculator className="w-12 h-12 text-secondary mb-4" />
-                    <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Tax Services</h3>
-                    <p className="text-sm text-primary-foreground/80">Expert tax planning and compliance solutions</p>
+                    <h3 className="font-montserrat font-bold text-white mb-2">Tax Services</h3>
+                    <p className="text-sm text-white/90">Expert tax planning and compliance solutions</p>
                   </div>
                   
                   {/* Bottom Row */}
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 ">
+                  <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-secondary/20 hover:bg-white/20 transition-all duration-300 ">
                     <Users className="w-12 h-12 text-secondary mb-4" />
-                    <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Risk Advisory</h3>
-                    <p className="text-sm text-primary-foreground/80">Enterprise risk management and controls</p>
+                    <h3 className="font-montserrat font-bold text-white mb-2">Risk Advisory</h3>
+                    <p className="text-sm text-white/90">Enterprise risk management and controls</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
+                  <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-secondary/20 hover:bg-white/20 transition-all duration-300">
                     <TrendingUp className="w-12 h-12 text-secondary mb-4" />
-                    <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Business Consulting</h3>
-                    <p className="text-sm text-primary-foreground/80">Strategic insights for sustainable growth</p>
+                    <h3 className="font-montserrat font-bold text-white mb-2">Business Consulting</h3>
+                    <p className="text-sm text-white/90">Strategic insights for sustainable growth</p>
                   </div>
                 </div>
                 

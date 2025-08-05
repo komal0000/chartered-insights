@@ -72,10 +72,10 @@ const About = () => {
         />
         
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/30 z-0" />
+        <div className="absolute inset-0 bg-black/60 z-0" />
         
         {/* Professional Background with blend mode */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/98 to-primary/95 mix-blend-overlay z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/30 to-primary/20 z-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat mix-blend-soft-light opacity-25"
             style={{
@@ -93,13 +93,13 @@ const About = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Text Content */}
               <div>
-                <h1 className="text-5xl lg:text-7xl font-montserrat font-bold text-primary-foreground mb-8 leading-tight">
+                <h1 className="text-5xl lg:text-7xl font-montserrat font-bold text-white mb-8 leading-tight">
                   About Us
                   <span className="block text-secondary text-3xl lg:text-4xl mt-4 font-semibold">
                     Excellence in Every Engagement
                   </span>
                 </h1>
-                <p className="text-xl font-lato text-left lg:text-justify text-primary-foreground/90 mb-8 leading-relaxed tracking-normal">
+                <p className="text-xl font-lato text-left lg:text-justify text-white/95 mb-8 leading-relaxed tracking-normal">
                   Roshan Kumar & Associates (RKACA) is Nepal's premier full-service Chartered Accountancy firm, delivering audit, tax, risk advisory, and business consulting services with unwavering commitment to excellence and client success.
                 </p>
                 </div>
@@ -108,28 +108,28 @@ const About = () => {
               <div className="relative">
                 <div className="grid grid-cols-2 gap-6">
                   {/* Core Values Cards */}
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
+                  <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-secondary/20 hover:bg-white/20 transition-all duration-300">
                     <Users className="w-12 h-12 text-secondary mb-4" />
-                    <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Partner-Led</h3>
-                    <p className="text-sm text-primary-foreground/80">Direct partner supervision ensuring quality and strategic insight</p>
+                    <h3 className="font-montserrat font-bold text-white mb-2">Partner-Led</h3>
+                    <p className="text-sm text-white/90">Direct partner supervision ensuring quality and strategic insight</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
+                  <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-secondary/20 hover:bg-white/20 transition-all duration-300">
                     <Award className="w-12 h-12 text-secondary mb-4" />
-                    <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Excellence</h3>
-                    <p className="text-sm text-primary-foreground/80">International best practices tailored for Nepal market</p>
+                    <h3 className="font-montserrat font-bold text-white mb-2">Excellence</h3>
+                    <p className="text-sm text-white/90">International best practices tailored for Nepal market</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300 ">
+                  <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-secondary/20 hover:bg-white/20 transition-all duration-300 ">
                     <Target className="w-12 h-12 text-secondary mb-4" />
-                    <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Client-First</h3>
-                    <p className="text-sm text-primary-foreground/80">Customized solutions prioritizing client goals</p>
+                    <h3 className="font-montserrat font-bold text-white mb-2">Client-First</h3>
+                    <p className="text-sm text-white/90">Customized solutions prioritizing client goals</p>
                   </div>
                   
-                  <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-secondary/20 hover:bg-primary-foreground/15 transition-all duration-300">
+                  <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-secondary/20 hover:bg-white/20 transition-all duration-300">
                     <Lightbulb className="w-12 h-12 text-secondary mb-4" />
-                    <h3 className="font-montserrat font-bold text-primary-foreground mb-2">Innovation</h3>
-                    <p className="text-sm text-primary-foreground/80">Technology-enabled solutions and continuous learning</p>
+                    <h3 className="font-montserrat font-bold text-white mb-2">Innovation</h3>
+                    <p className="text-sm text-white/90">Technology-enabled solutions and continuous learning</p>
                   </div>
                 </div>
                 
